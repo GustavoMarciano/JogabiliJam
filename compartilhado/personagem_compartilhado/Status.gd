@@ -1,0 +1,1 @@
+extends "res://compartilhado/personagem_compartilhado/PersonagemCompartilhado.gd"
