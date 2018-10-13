@@ -10,7 +10,7 @@ func _physics_process(delta):
 			if owner.movimento.y < VELOCIDADE_MAXIMA_QUEDA:
 				owner.movimento.y += GRAVIDADE
 		"desabilitar":
-			owner.movimento.Y = 0
+			owner.movimento.y = 0
 
 func modificar_gravidade(novo_tipo):
 	tipo = novo_tipo

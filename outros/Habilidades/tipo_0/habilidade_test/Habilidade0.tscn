@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://outros/Habilidades/tipo_0/habilidade_test/Habilidade0.gd" type="Script" id=1]
+
+[node name="Habilidade0" type="Node"]
+script = ExtResource( 1 )
+

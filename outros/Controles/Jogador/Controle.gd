@@ -2,9 +2,6 @@ extends Node
 
 func _input(event):
 	owner.direcao = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-
-	if Input.is_action_just_pressed("ui_up") && owner.is_on_floor():
-		owner.mudar_estado("Pulando")
-
-	if Input.is_action_just_pressed("ataque0"):
-		owner.mudar_estado("Ataque0") 
+	owner.habilidade0 = int(Input.is_action_pressed("ui_ataque0"))
+	owner.habilidade1 = int(Input.is_action_pressed("ui_ataque1"))
+	owner.habilidade2 = int(Input.is_action_pressed("ui_ataque2"))

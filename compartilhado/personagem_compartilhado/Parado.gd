@@ -11,5 +11,12 @@ func update(delta):
 	if owner.direcao != 0:
 		exit("Andando")
 
+	if owner.habilidade0 != 0:
+		 exit("Habilidade0")
+	if owner.habilidade1 != 0:
+		 exit("Habilidade1")
+	if owner.habilidade2 != 0:
+		 exit("Habilidade2")
+
 func exit(state):
 	owner.mudar_estado(state)
