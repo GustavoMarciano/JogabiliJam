@@ -5,7 +5,7 @@
 [ext_resource path="res://personagens/personagem_teste/Animation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://outros/Habilidades/tipo_0/habilidade_test/Habilidade0.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 27.5858 )
@@ -15,7 +15,7 @@ extents = Vector2( 10, 27.5858 )
 custom_solver_bias = 0.0
 extents = Vector2( 13.6687, 35.3249 )
 
-[node name="PersonagemTeste" instance=ExtResource( 1 )]
+[node name="PersonagemTeste" index="0" instance=ExtResource( 1 )]
 
 [node name="Controle" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -23,7 +23,7 @@ extents = Vector2( 13.6687, 35.3249 )
 editor/display_folded = false
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="4"]
 position = Vector2( 0.259426, 5.58059 )
@@ -33,11 +33,9 @@ _sections_unfolded = [ "Transform" ]
 [node name="Animation" parent="Sprite" index="0" instance=ExtResource( 3 )]
 
 [node name="Habilidade0" parent="Estados" index="0" instance=ExtResource( 4 )]
+cd_time = 1
 
 [node name="Gravidade" parent="." index="7"]
 GRAVIDADE = 40.0
 VELOCIDADE_MAXIMA_QUEDA = 800.0
-
-[node name="Mobilidade" parent="." index="8"]
-velocidade = 200.0
 

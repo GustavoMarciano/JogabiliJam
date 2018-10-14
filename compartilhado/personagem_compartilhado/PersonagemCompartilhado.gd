@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 var movimento = Vector2()
 var direcao = 0
-var habilidade0 = 0
-var habilidade1 = 0
-var habilidade2 = 0
+onready var habilidade0 = get_node("Estados/Habilidade0")
+onready var habilidade1 = get_node("Estados/Habilidade1")
+onready var habilidade2 = get_node("Estados/Habilidade2")
 onready var sprite = $Sprite
 var estado_atual
 

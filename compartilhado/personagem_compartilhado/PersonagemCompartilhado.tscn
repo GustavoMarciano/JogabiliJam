@@ -29,10 +29,16 @@ collision_mask = 1
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
 script = ExtResource( 1 )
+max_hp = 9
+velocidade_base = 300
+velocidade_ataque_base = 1
+defesa = 1
+reducao_cd = 0
+buff_velocidade_ataque = 0
+buff_velocidade_movimento = 0
 
 [node name="HP" type="Node" parent="."]
 script = ExtResource( 2 )
-max_hp = 9
 
 [node name="Efeitos" type="Node" parent="."]
 
@@ -80,5 +86,4 @@ VELOCIDADE_MAXIMA_QUEDA = null
 
 [node name="Mobilidade" type="Node" parent="."]
 script = ExtResource( 11 )
-velocidade = null
 
