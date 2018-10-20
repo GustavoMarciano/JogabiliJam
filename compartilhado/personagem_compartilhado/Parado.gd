@@ -1,15 +1,12 @@
 extends Node
 
+export(float) var velocidade_animacao
+
 func start():
-	owner.mudar_animacao("Parado",1,0.2)
+	owner.mudar_animacao("Parado",velocidade_animacao,0.2)
 	owner.mudar_mobilidade_e_gravidade("desabilitar","normal")
 
 func update(delta):
-	if !owner.is_on_floor():
-		exit("Caindo")
-
-	if owner.direcao != 0:
-		exit("Andando")
-
-func exit(state):
-	owner.mudar_estado(state)
+	var estado = owner.esta()
+	if estado != "Parado":
+		owner.mudar_estado(estado)

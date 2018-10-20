@@ -1,14 +1,12 @@
 extends Node
 
 func start():
-	owner.mudar_animacao("Idle",1,0.2)
+	owner.mudar_animacao("Morto",1,.2)
+	owner.mudar_mobilidade_e_gravidade("desabilitar","normal")
+	owner.controle.set_process(false)
+	owner.last_hit.add_xp(owner.nivel * 50)
 
 func update(delta):
-	if !owner.is_on_floor():
-		exit("Fall")
-
-	if owner.move_dir != 0:
-		exit("Move")
-
-func exit(state):
-	owner.mudar_estado(state)
+	owner.sprite.modulate.a -= 0.01
+	if owner.sprite.modulate.a < 0.001:
+		owner.queue_free()

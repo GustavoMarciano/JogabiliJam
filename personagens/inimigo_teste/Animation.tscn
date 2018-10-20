@@ -2127,12 +2127,13 @@ tracks/17/keys = {
 
 [node name="Animation" type="Node2D"]
 position = Vector2( 0, -10 )
+rotation = 0.087367
 _sections_unfolded = [ "Transform" ]
 
 [node name="maoB" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 21.309, -4.58993 )
-rotation = -1.08933
+position = Vector2( 13.4147, 6.55026 )
+rotation = -0.377164
 texture = ExtResource( 1 )
 offset = Vector2( 2.05304, 5.82734 )
 region_enabled = true
@@ -2140,7 +2141,8 @@ region_rect = Rect2( 33, 77, 12, 19 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="Cabeça" type="Sprite" parent="."]
-position = Vector2( 1.24654, -15.3429 )
+position = Vector2( 2.93701, -14.1486 )
+rotation = 0.0552306
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 10, 38, 10, 14 )
@@ -2149,7 +2151,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 [node name="PernaB" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 2.85096, 12.318 )
-rotation = -0.552964
+rotation = 0.436833
 texture = ExtResource( 1 )
 offset = Vector2( 0.287437, 8.78873 )
 region_enabled = true
@@ -2161,7 +2163,7 @@ __meta__ = {
 
 [node name="PeB" type="Sprite" parent="PernaB"]
 position = Vector2( 0.104679, 19.1553 )
-rotation = 0.490099
+rotation = 1.35869
 texture = ExtResource( 1 )
 offset = Vector2( -0.209351, 9.94398 )
 region_enabled = true
@@ -2169,6 +2171,7 @@ region_rect = Rect2( 61, 31, 8, 26 )
 _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="Corpo" type="Sprite" parent="."]
+rotation = 0.145192
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 6, 1, 19, 26 )
@@ -2176,7 +2179,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="PernaF" type="Sprite" parent="Corpo"]
 position = Vector2( -3.38519, 13.5747 )
-rotation = 0.286405
+rotation = -0.945893
 texture = ExtResource( 1 )
 offset = Vector2( 0.287437, 8.78873 )
 region_enabled = true
@@ -2188,7 +2191,6 @@ __meta__ = {
 
 [node name="PeF" type="Sprite" parent="Corpo/PernaF"]
 position = Vector2( 0.104679, 19.1553 )
-rotation = 0.342629
 texture = ExtResource( 1 )
 offset = Vector2( -0.209351, 9.94398 )
 region_enabled = true
@@ -2196,8 +2198,8 @@ region_rect = Rect2( 61, 31, 8, 26 )
 _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="maoF" type="Sprite" parent="."]
-position = Vector2( 6.96954, -3.0221 )
-rotation = -1.08933
+position = Vector2( -21.1869, 1.64087 )
+rotation = 2.12532
 texture = ExtResource( 1 )
 offset = Vector2( 2.05304, 5.82734 )
 region_enabled = true

@@ -1,3 +1,5 @@
 extends Area2D
+var lista
 
-export(int) var damage = 2
+func lista(d):
+	lista = d

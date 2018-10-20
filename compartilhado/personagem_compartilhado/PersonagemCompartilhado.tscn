@@ -1,44 +1,55 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://compartilhado/personagem_compartilhado/Status.gd" type="Script" id=1]
-[ext_resource path="res://compartilhado/personagem_compartilhado/HP.gd" type="Script" id=2]
-[ext_resource path="res://compartilhado/personagem_compartilhado/HurtBox.gd" type="Script" id=3]
-[ext_resource path="res://compartilhado/personagem_compartilhado/Sprite.gd" type="Script" id=4]
-[ext_resource path="res://compartilhado/personagem_compartilhado/Estados.gd" type="Script" id=5]
+[ext_resource path="res://compartilhado/HPBar/HPBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://compartilhado/personagem_compartilhado/HP.gd" type="Script" id=3]
+[ext_resource path="res://compartilhado/personagem_compartilhado/HurtBox.gd" type="Script" id=4]
+[ext_resource path="res://compartilhado/personagem_compartilhado/Sprite.gd" type="Script" id=5]
 [ext_resource path="res://compartilhado/personagem_compartilhado/Parado.gd" type="Script" id=6]
 [ext_resource path="res://compartilhado/personagem_compartilhado/Andando.gd" type="Script" id=7]
 [ext_resource path="res://compartilhado/personagem_compartilhado/Morto.gd" type="Script" id=8]
 [ext_resource path="res://compartilhado/personagem_compartilhado/Caindo.gd" type="Script" id=9]
-[ext_resource path="res://compartilhado/personagem_compartilhado/Gravidade.gd" type="Script" id=10]
-[ext_resource path="res://compartilhado/personagem_compartilhado/Mobilidade.gd" type="Script" id=11]
+[ext_resource path="res://compartilhado/personagem_compartilhado/Knock.gd" type="Script" id=10]
+[ext_resource path="res://compartilhado/personagem_compartilhado/Atordoado.gd" type="Script" id=11]
+[ext_resource path="res://compartilhado/personagem_compartilhado/Mobilidade.gd" type="Script" id=12]
+[ext_resource path="res://compartilhado/personagem_compartilhado/Gravidade.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 13.6548 )
+extents = Vector2( 10, 30.4442 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 13.6687, 23.9105 )
+extents = Vector2( 13.6687, 35.4267 )
 
-[node name="PersonagemCompartilhado" type="KinematicBody2D"]
+[node name="PersonagemCompartilhado" type="KinematicBody2D" groups=[
+"UNITY",
+]]
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
 script = ExtResource( 1 )
+side = null
 max_hp = 9
+critico_base = 1
 velocidade_base = 300
 velocidade_ataque_base = 1
-defesa = 1
-reducao_cd = 0
-buff_velocidade_ataque = 0
-buff_velocidade_movimento = 0
+defesa_base = 1
+reducao_cd_base = 0
+dano_base = 0
+bonus_velocidade_ataque = 0
+bonus_velocidade_movimento = 0
+bonus_critico = 0
+
+[node name="HPBar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1.32684, -12.605 )
 
 [node name="HP" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="Efeitos" type="Node" parent="."]
 
@@ -51,7 +62,8 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 3 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 modulate = Color( 1, 0, 0, 1 )
@@ -62,16 +74,17 @@ _sections_unfolded = [ "Visibility" ]
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Estados" type="Node" parent="."]
-script = ExtResource( 5 )
 
 [node name="Parado" type="Node" parent="Estados"]
 script = ExtResource( 6 )
+velocidade_animacao = 1.0
 
 [node name="Andando" type="Node" parent="Estados"]
 script = ExtResource( 7 )
+velocidade_animacao = 1.0
 
 [node name="Morto" type="Node" parent="Estados"]
 script = ExtResource( 8 )
@@ -79,11 +92,35 @@ script = ExtResource( 8 )
 [node name="Caindo" type="Node" parent="Estados"]
 script = ExtResource( 9 )
 
-[node name="Gravidade" type="Node" parent="."]
+[node name="Knock" type="Node" parent="Estados"]
+editor/display_folded = true
 script = ExtResource( 10 )
+
+[node name="KnockTimer" type="Timer" parent="Estados/Knock"]
+process_mode = 0
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Atordoado" type="Node" parent="Estados"]
+editor/display_folded = true
+script = ExtResource( 11 )
+
+[node name="AtordoamentoTimer" type="Timer" parent="Estados/Atordoado"]
+process_mode = 0
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Mobilidade" type="Node" parent="."]
+script = ExtResource( 12 )
+
+[node name="Gravidade" type="Node" parent="."]
+script = ExtResource( 13 )
 GRAVIDADE = null
 VELOCIDADE_MAXIMA_QUEDA = null
 
-[node name="Mobilidade" type="Node" parent="."]
-script = ExtResource( 11 )
-
+[connection signal="hp_changed" from="HP" to="HPBar" method="_on_HP_hp_changed"]
+[connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="Estados/Knock/KnockTimer" to="Estados/Knock" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Estados/Atordoado/AtordoamentoTimer" to="Estados/Atordoado" method="_on_Timer_timeout"]

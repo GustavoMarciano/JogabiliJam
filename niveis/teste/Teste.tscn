@@ -1,26 +1,141 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://personagens/personagem_teste/PersonagemTeste.tscn" type="PackedScene" id=1]
+[ext_resource path="res://personagens/inimigo_teste/InimigoTeste.tscn" type="PackedScene" id=1]
+[ext_resource path="res://personagens/personagem_teste/PersonagemTeste.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://niveis/teste/Spawner.gd" type="Script" id=4]
+[ext_resource path="res://niveis/teste/VisibilityNotifier2D.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 337.345, 14.2546 )
+extents = Vector2( 832, 14.2546 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 208 )
 
 [node name="Teste" type="Node"]
 
+[node name="InimigoTeste" parent="." instance=ExtResource( 1 )]
+position = Vector2( 144, 288 )
+
+[node name="PersonagemTeste" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 0, 293.581 )
+
+[node name="Camera2D" parent="PersonagemTeste" index="9"]
+limit_left = -900
+limit_top = -100
+limit_right = 900
+limit_bottom = 350
+editor_draw_limits = true
+editor_draw_drag_margin = true
+_sections_unfolded = [ "Editor", "Limit" ]
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 5
+collision_mask = 5
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 physics_material_override = null
-
-[node name="PersonagemTeste" parent="StaticBody2D" instance=ExtResource( 1 )]
-position = Vector2( 432, 176 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 336, 352 )
+position = Vector2( 0, 352 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -96 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 864, 128 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -864, 128 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -0.000124454, 363 )
+scale = Vector2( 28.5, 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite3" type="Sprite" parent="StaticBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -864, 306.79 )
+scale = Vector2( 1, 1.0872 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite4" type="Sprite" parent="StaticBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 864, 304 )
+scale = Vector2( 1, 1.0872 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Position2D" type="Position2D" parent="."]
+script = ExtResource( 4 )
+min_waitTime = 1.0
+max_waitTime = 8.0
+
+[node name="Timer" type="Timer" parent="Position2D"]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Position2D"]
+position = Vector2( -752, 341.58 )
+scale = Vector2( 6.1, 1 )
+rect = Rect2( -10, -10, 20, 20 )
+script = ExtResource( 5 )
+
+[node name="VisibilityNotifier2D4" type="VisibilityNotifier2D" parent="Position2D"]
+position = Vector2( -448, 341.58 )
+scale = Vector2( 6.1, 1 )
+rect = Rect2( -10, -10, 20, 20 )
+script = ExtResource( 5 )
+
+[node name="VisibilityNotifier2D5" type="VisibilityNotifier2D" parent="Position2D"]
+position = Vector2( -3.75342, 341.58 )
+scale = Vector2( 6.1, 1 )
+rect = Rect2( -10, -10, 20, 20 )
+script = ExtResource( 5 )
+
+[node name="VisibilityNotifier2D6" type="VisibilityNotifier2D" parent="Position2D"]
+position = Vector2( 448, 341.58 )
+scale = Vector2( 6.1, 1 )
+rect = Rect2( -10, -10, 20, 20 )
+script = ExtResource( 5 )
+
+[node name="VisibilityNotifier2D7" type="VisibilityNotifier2D" parent="Position2D"]
+position = Vector2( 752, 341.58 )
+scale = Vector2( 6.1, 1 )
+rect = Rect2( -10, -10, 20, 20 )
+script = ExtResource( 5 )
+
+[connection signal="hp_changed" from="PersonagemTeste/HP" to="PersonagemTeste/InterFace" method="_on_HP_hp_changed"]
+[connection signal="timeout" from="Position2D/Timer" to="Position2D" method="_on_Timer_timeout"]
+[connection signal="screen_entered" from="Position2D/VisibilityNotifier2D" to="Position2D/VisibilityNotifier2D" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="Position2D/VisibilityNotifier2D" to="Position2D/VisibilityNotifier2D" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_entered" from="Position2D/VisibilityNotifier2D4" to="Position2D/VisibilityNotifier2D4" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="Position2D/VisibilityNotifier2D4" to="Position2D/VisibilityNotifier2D4" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_entered" from="Position2D/VisibilityNotifier2D5" to="Position2D/VisibilityNotifier2D5" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="Position2D/VisibilityNotifier2D5" to="Position2D/VisibilityNotifier2D5" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_entered" from="Position2D/VisibilityNotifier2D6" to="Position2D/VisibilityNotifier2D6" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="Position2D/VisibilityNotifier2D6" to="Position2D/VisibilityNotifier2D6" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_entered" from="Position2D/VisibilityNotifier2D7" to="Position2D/VisibilityNotifier2D7" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="Position2D/VisibilityNotifier2D7" to="Position2D/VisibilityNotifier2D7" method="_on_VisibilityNotifier2D_screen_exited"]
+
+[editable path="PersonagemTeste"]
