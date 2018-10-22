@@ -4,7 +4,7 @@ var target
 var target_list = []
 var random
 
-var ab_range = 60
+var ab_range = 90
 
 onready var habilidade0 = owner.get_node("Estados/Habilidade0")
 

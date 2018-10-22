@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=1]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-bg_color = Color( 0.784314, 0.32549, 0.627451, 1 )
+bg_color = Color( 0.996078, 0.0313726, 0.466667, 1 )
 draw_center = true
 border_width_left = 3
 border_width_top = 3
@@ -29,13 +29,13 @@ anti_aliasing = false
 anti_aliasing_size = 5
 _sections_unfolded = [ "Anti Aliasing", "Border", "Border Width" ]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-bg_color = Color( 0.564706, 0.827451, 0.921569, 1 )
+bg_color = Color( 0.427451, 0.827451, 0.976471, 1 )
 draw_center = true
 border_width_left = 0
 border_width_top = 0
@@ -72,8 +72,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 3 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0

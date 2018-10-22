@@ -5,4 +5,10 @@
 [node name="Master" type="Node"]
 
 [node name="Teste" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
 
+[connection signal="mudar_hp" from="Teste/PersonagemTeste/HP" to="Teste/PersonagemTeste/InterFace" method="_on_HP_mudar_hp"]
+
+[editable path="Teste"]
+
+[editable path="Teste/PersonagemTeste"]

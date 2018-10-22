@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://compartilhado/personagem_compartilhado/Status.gd" type="Script" id=1]
 [ext_resource path="res://compartilhado/HPBar/HPBar.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://compartilhado/personagem_compartilhado/Atordoado.gd" type="Script" id=11]
 [ext_resource path="res://compartilhado/personagem_compartilhado/Mobilidade.gd" type="Script" id=12]
 [ext_resource path="res://compartilhado/personagem_compartilhado/Gravidade.gd" type="Script" id=13]
+[ext_resource path="res://compartilhado/personagem_compartilhado/ParticulaHP.gd" type="Script" id=14]
+[ext_resource path="res://compartilhado/personagem_compartilhado/ParticulaXP.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,7 +42,7 @@ velocidade_base = 300
 velocidade_ataque_base = 1
 defesa_base = 1
 reducao_cd_base = 0
-dano_base = 0
+dano_base = 1
 bonus_velocidade_ataque = 0
 bonus_velocidade_movimento = 0
 bonus_critico = 0
@@ -120,7 +122,21 @@ script = ExtResource( 13 )
 GRAVIDADE = null
 VELOCIDADE_MAXIMA_QUEDA = null
 
-[connection signal="hp_changed" from="HP" to="HPBar" method="_on_HP_hp_changed"]
+[node name="Particulas" type="Node" parent="."]
+
+[node name="ParticulaHP" type="Position2D" parent="Particulas"]
+position = Vector2( 0, -70.3172 )
+script = ExtResource( 14 )
+
+[node name="ParticulaXP" type="Position2D" parent="Particulas"]
+position = Vector2( 0, -69.3487 )
+script = ExtResource( 15 )
+
+[connection signal="mudar_nivel" from="." to="Particulas/ParticulaXP" method="_on_PersonagemCompartilhado_mudar_nivel"]
+[connection signal="died" from="HP" to="." method="_on_HP_died"]
+[connection signal="mudar_hp" from="HP" to="HPBar" method="_on_HP_mudar_hp"]
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_HurtBox_area_entered"]
+[connection signal="dano_critico" from="HurtBox" to="Particulas/ParticulaHP" method="_on_HurtBox_dano_critico"]
+[connection signal="dano_normal" from="HurtBox" to="Particulas/ParticulaHP" method="_on_HurtBox_dano_normal"]
 [connection signal="timeout" from="Estados/Knock/KnockTimer" to="Estados/Knock" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Estados/Atordoado/AtordoamentoTimer" to="Estados/Atordoado" method="_on_Timer_timeout"]

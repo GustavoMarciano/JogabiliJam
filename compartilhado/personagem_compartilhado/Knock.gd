@@ -2,7 +2,7 @@ extends Node
 
 func start():
 	owner.mudar_animacao("Knock",1,0)
-	owner.mudar_mobilidade_e_gravidade("knock","knock")
+	owner.mudar_mobilidade_e_gravidade("","")
 	owner.controle.set_process(false)
 	$"KnockTimer".wait_time = owner.tempo_knock_back 
 	$"KnockTimer".start()

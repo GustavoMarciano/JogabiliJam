@@ -3,16 +3,20 @@
 [ext_resource path="res://compartilhado/personagem_compartilhado/PersonagemCompartilhado.tscn" type="PackedScene" id=1]
 [ext_resource path="res://outros/Controles/Inimigo/Controle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://personagens/inimigo_teste/Animation.tscn" type="PackedScene" id=3]
-[ext_resource path="res://outros/Habilidades/tipo_0/habilidade_test/Habilidade0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://outros/Habilidades/tipo_0/habilidade_test_inimigo/Habilidade0.tscn" type="PackedScene" id=4]
 
 [node name="InimigoTeste" instance=ExtResource( 1 )]
 collision_layer = 4
 collision_mask = 8
 _sections_unfolded = [ "Collision" ]
 side = "Inimigo"
+max_hp = 25
 velocidade_base = 100
 
 [node name="Controle" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="HPBar" parent="." index="1"]
+position = Vector2( -0.104396, 3.92564 )
 
 [node name="CollisionShape2D" parent="." index="5"]
 position = Vector2( 0.552078, 5.08292 )
@@ -24,6 +28,7 @@ _sections_unfolded = [ "Material", "Visibility" ]
 [node name="Animation" parent="Sprite" index="0" instance=ExtResource( 3 )]
 
 [node name="Habilidade0" parent="Estados" index="0" instance=ExtResource( 4 )]
+cd_time = 2.0
 
 [node name="Andando" parent="Estados" index="2"]
 velocidade_animacao = 0.5
@@ -31,4 +36,7 @@ velocidade_animacao = 0.5
 [node name="Gravidade" parent="." index="9"]
 GRAVIDADE = 20.0
 VELOCIDADE_MAXIMA_QUEDA = 400.0
+
+[node name="ParticulaHP" parent="Particulas" index="0"]
+position = Vector2( 0.0360336, -51.8359 )
 

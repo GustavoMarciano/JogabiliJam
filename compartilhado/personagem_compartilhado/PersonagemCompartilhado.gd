@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 var movimento = Vector2()
 var direcao = 0
-var knockdir = 0
 var estado_atual = ""
 
+var atacando = false
 var dead = false
 
 onready var hurtbox = get_node("HurtBox")
@@ -24,7 +24,6 @@ func mudar_animacao(anim_name,anim_speed,anim_blend):
 func mudar_escala_sprite(val1,val2):
 	if direcao != 0:
 		sprite.set_scale(Vector2(val1,val2))
-		knockdir = -direcao
 
 func mudar_mobilidade_e_gravidade(mobilidade,gravidade):
 	$Mobilidade.modificar_mobilidade(mobilidade)
@@ -36,7 +35,6 @@ func tomar_dano(valor):
 func mudar_estado(estado):
 	var path = "Estados/" + estado
 	if get_node(path):
-		print(path)
 		estado_atual = get_node(path)
 		estado_atual.start()
 
