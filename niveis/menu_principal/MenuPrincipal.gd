@@ -1,14 +1,20 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	mudar_botao("up")
 
 func _process(delta):
 	if Input.is_action_pressed("ui_down"):
-		$"Button".hover = true
+		mudar_botao("down")
+	if Input.is_action_pressed("ui_up"):
+		mudar_botao("up")
+
+func mudar_botao(valor):
+	if valor == "up":
+		$"Button0".grab_focus()
+
+func _on_Button0_pressed():
+	Game.nova_cena("res://niveis/teste/Teste.tscn")
+
+func _on_Button1_pressed():
+	pass

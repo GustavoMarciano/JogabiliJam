@@ -11,21 +11,20 @@ var tempo_knock_back = 0
 var tempo_atordoamento = 0
 var critico = false
 var last_hit
-
+var kills = 0
 
 export(String,"Player","Inimigo") var side 
-export(int,10,999) var max_hp = 9
+export(int,1,999) var max_hp = 9
 export(int,0,100) var critico_base = 1
 export(int,100,600) var velocidade_base = 300
 export(float,1,2) var velocidade_ataque_base = 1
-export(int,1,100) var defesa_base = 1
 export(float,0,8) var reducao_cd_base = 0
-export(float,0,8) var dano_base = 1
+export(float,0,999) var dano_base = 1
 export(float,0,2) var bonus_velocidade_ataque = 0
 export(int,0,100) var bonus_velocidade_movimento = 0
 export(int,0,100) var bonus_critico = 0
 
-var dmg_range = [dano_base,dano_base * 4]
+var dmg_range = [dano_base,dano_base * 2]
 
 func row_crit():
 	randomize()
@@ -49,10 +48,12 @@ func mudar_nivel():
 			nivel += 1  
 			max_hp += 2
 			hp = max_hp
-			dano_base += 1
+			dano_base += .5
 			critico_base += 1
 			$"HP".emit_signal("mudar_hp",hp) 
 			emit_signal("mudar_nivel",nivel)
+			dmg_range = [dano_base,dano_base * 2]
+
 func _on_HP_died():
 	dead = true
 

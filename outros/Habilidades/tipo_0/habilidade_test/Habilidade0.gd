@@ -24,11 +24,11 @@ func start():
 	var status = {
 		"Owner":owner,
 		"Side":owner.side,
-		"Dano": round(rand_range(owner.dmg_range[0],owner.dmg_range[1])) + 12,
+		"Dano": round(rand_range(owner.dmg_range[0],owner.dmg_range[1])) + 4,
 		"Critico": owner.critico 
 		}
 
-	status["Knock"] = {"timer":.3,"x":50 * poder.get_scale().x,"y":0}
+	status["Knock"] = {"timer":.3,"x":150 * poder.get_scale().x,"y":0}
 
 	poder.get_node("Position2D/HitBox").lista(status)
 

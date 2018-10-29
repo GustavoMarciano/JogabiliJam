@@ -20,7 +20,7 @@ func start():
 	var status = {
 		"Owner":owner,
 		"Side":owner.side,
-		"Dano": 8 + owner.dano_base,
+		"Dano": round(rand_range(owner.dmg_range[0],owner.dmg_range[1]) + 1),
 		"Critico": owner.critico 
 		}
 

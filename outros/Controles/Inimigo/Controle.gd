@@ -32,11 +32,13 @@ func _process(delta):
 				return
 
 		if target != null: 
-			if target.global_position.x > owner.global_position.x + ab_range:
+			var colider = $"../Sprite/Position2D/RayCast2D".get_collider() 
+			if $"../Sprite/Position2D/RayCast2D".is_colliding():
+				if colider && colider.owner == target:
+					if habilidade0.em_cd == false && habilidade0 != null && owner.atacando == false:
+						owner.mudar_estado("Habilidade0")
+
+			elif target.global_position.x > owner.global_position.x + ab_range:
 				owner.direcao = 1
 			elif target.global_position.x < owner.global_position.x - ab_range:
 				owner.direcao = -1
-			else:
-				if habilidade0.em_cd == false && habilidade0 != null:
-					owner.mudar_estado("Habilidade0")
-				owner.direcao = 0

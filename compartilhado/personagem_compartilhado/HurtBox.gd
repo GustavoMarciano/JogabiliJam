@@ -2,6 +2,7 @@ extends Area2D
 
 signal dano_normal(value1)
 signal dano_critico(value)
+signal shake()
 
 var disable = false
 const DamageSource = preload("res://compartilhado/hitbox/HitBox.gd")
@@ -23,7 +24,8 @@ func _on_HurtBox_area_entered(area):
 		owner.tomar_dano(area.lista["Dano"])
 		emit_signal("dano_normal", area.lista["Dano"])
 
-	if area.lista.has("Knock") && owner.atacando == false:
+	if area.lista.has("Knock"):
+		emit_signal("shake")
 		var knock = area.lista["Knock"].values()
 		owner.tempo_knock_back = knock[0]
 		owner.movimento.x = knock[1]

@@ -1,14 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://niveis/teste/Teste.tscn" type="PackedScene" id=1]
+[ext_resource path="res://niveis/menu_principal/MenuPrincipal.tscn" type="PackedScene" id=1]
 
 [node name="Master" type="Node"]
 
-[node name="Teste" parent="." instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="MenuPrincipal" parent="." instance=ExtResource( 1 )]
 
-[connection signal="mudar_hp" from="Teste/PersonagemTeste/HP" to="Teste/PersonagemTeste/InterFace" method="_on_HP_mudar_hp"]
-
-[editable path="Teste"]
-
-[editable path="Teste/PersonagemTeste"]

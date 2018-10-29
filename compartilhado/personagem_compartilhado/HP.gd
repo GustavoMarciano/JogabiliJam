@@ -8,7 +8,7 @@ func _ready():
 	owner.hp = owner.max_hp
 
 func dano(valor):
-	owner.hp -= valor - owner.defesa_base
+	owner.hp -= valor
 	owner.hp = clamp(owner.hp,0,owner.max_hp)
 	emit_signal("mudar_hp",owner.hp)
 	if owner.hp < 1:

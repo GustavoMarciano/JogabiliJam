@@ -24,6 +24,7 @@ func mudar_animacao(anim_name,anim_speed,anim_blend):
 func mudar_escala_sprite(val1,val2):
 	if direcao != 0:
 		sprite.set_scale(Vector2(val1,val2))
+		
 
 func mudar_mobilidade_e_gravidade(mobilidade,gravidade):
 	$Mobilidade.modificar_mobilidade(mobilidade)

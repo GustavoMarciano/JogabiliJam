@@ -1,19 +1,236 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://niveis/menu_principal/MenuPrincipal.gd" type="Script" id=1]
+[ext_resource path="res://niveis/teste/Sprite-0001.png" type="Texture" id=2]
+[ext_resource path="res://niveis/teste/Sprite-0002.png" type="Texture" id=3]
+[ext_resource path="res://American Captain.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://niveis/menu_principal/Button.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 32
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 62
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Settings" ]
 
 [node name="MenuPrincipal" type="Node"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
-[node name="Button" type="Button" parent="."]
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 318.737, 269.018 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 137.672, 388.18 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 228.088, 439.063 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 51.7824, 419.905 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 509.088, 440.024 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( 418.555, 485.677 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="."]
+position = Vector2( 575.633, 426.096 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite9" type="Sprite" parent="."]
+position = Vector2( 451.828, 391.072 )
+rotation = 1.57079
+scale = Vector2( 8.46597, 1.24978 )
+texture = ExtResource( 2 )
+
+[node name="Sprite10" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 360.569, 198.136 )
+rotation = 1.57079
+scale = Vector2( 1.39746, 0.364603 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite13" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 124.362, 299.396 )
+rotation = 1.57079
+scale = Vector2( 1.69005, 0.364603 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite14" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 35.9876, 262.688 )
+rotation = 1.57079
+scale = Vector2( 0.17174, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite15" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 67.7535, 301.784 )
+rotation = 1.57079
+scale = Vector2( 0.17174, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite16" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 27.0281, 331.921 )
+rotation = 1.57079
+scale = Vector2( 0.17174, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite17" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 513.29, 336.61 )
+rotation = 1.57079
+scale = Vector2( 0.567133, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite21" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 608.587, 277.151 )
+rotation = 1.57079
+scale = Vector2( 0.567133, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite18" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 459.532, 344.755 )
+rotation = 1.57079
+scale = Vector2( 0.567133, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite19" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 406.589, 232.353 )
+rotation = 1.57079
+scale = Vector2( 0.567133, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite20" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 406.589, 232.353 )
+rotation = 1.57079
+scale = Vector2( 0.567133, 0.275206 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite12" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.807843, 0.819608, 1 )
+position = Vector2( 298.839, 264.654 )
+rotation = 1.57079
+scale = Vector2( 0.375593, 0.318489 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite11" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.368627, 0.333333, 1 )
+position = Vector2( 269.167, 129.573 )
+rotation = 1.57079
+scale = Vector2( 0.345066, 0.380982 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite22" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.368627, 0.333333, 1 )
+position = Vector2( 224.776, 342.159 )
+rotation = 1.57079
+scale = Vector2( 0.345066, 0.589575 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite23" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.368627, 0.333333, 1 )
+position = Vector2( 71.6485, 260.709 )
+rotation = 1.57079
+scale = Vector2( 0.345066, 0.589575 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite24" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.368627, 0.333333, 1 )
+position = Vector2( 16.262, 296.547 )
+rotation = 1.57079
+scale = Vector2( 0.345066, 0.589575 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite25" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.368627, 0.333333, 1 )
+position = Vector2( 159.615, 235.459 )
+rotation = 1.57079
+scale = Vector2( 0.345066, 0.589575 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite26" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.368627, 0.333333, 1 )
+position = Vector2( 484.604, 276.999 )
+rotation = 1.57079
+scale = Vector2( 0.345066, 0.589575 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite27" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.368627, 0.333333, 1 )
+position = Vector2( 566.055, 295.938 )
+rotation = 1.57079
+scale = Vector2( 0.748366, 0.589575 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Button0" type="Button" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 76.0
-margin_top = 212.0
-margin_right = 153.0
-margin_bottom = 232.0
+margin_left = 190.0
+margin_top = 271.0
+margin_right = 438.0
+margin_bottom = 311.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -21,6 +238,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -28,4 +246,30 @@ group = null
 text = "Jogar"
 flat = false
 align = 1
+script = ExtResource( 5 )
+_sections_unfolded = [ "custom_fonts", "custom_fonts/font" ]
 
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 218.0
+margin_top = 53.0
+margin_right = 432.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Tumu-Low"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts", "custom_fonts/font" ]
+
+[connection signal="focus_entered" from="Button0" to="Button0" method="_on_Button0_focus_entered"]
+[connection signal="pressed" from="Button0" to="." method="_on_Button0_pressed"]

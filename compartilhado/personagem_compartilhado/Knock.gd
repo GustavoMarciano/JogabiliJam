@@ -6,7 +6,7 @@ func start():
 	owner.controle.set_process(false)
 	$"KnockTimer".wait_time = owner.tempo_knock_back 
 	$"KnockTimer".start()
-
+	owner.atacando = false
 func update(delta):
 	pass
 

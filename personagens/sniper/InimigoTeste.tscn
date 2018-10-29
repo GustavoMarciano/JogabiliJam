@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://compartilhado/personagem_compartilhado/PersonagemCompartilhado.tscn" type="PackedScene" id=1]
+[ext_resource path="res://outros/Controles/Inimigo/Controle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://personagens/sniper/Animation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://outros/Habilidades/tipo_0/habilidade_sniper/Habilidade0.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 17.6396 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.78024, 17.7039 )
+
+[node name="InimigoTeste" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 8
+_sections_unfolded = [ "Collision" ]
+side = "Inimigo"
+max_hp = 20
+velocidade_base = 200
+dano_base = 4.0
+
+[node name="HPBar" parent="." index="0"]
+position = Vector2( -0.104396, 3.92564 )
+
+[node name="Controle" parent="." index="2" instance=ExtResource( 2 )]
+
+[node name="HurtBox" parent="." index="4"]
+editor/display_folded = false
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+modulate = Color( 1, 1, 1, 1 )
+position = Vector2( -0.330551, -8.22183 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="5"]
+position = Vector2( -1.29166, -12.2185 )
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="6"]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Animation" parent="Sprite" index="0" instance=ExtResource( 3 )]
+
+[node name="Position2D" type="Position2D" parent="Sprite" index="1"]
+position = Vector2( -1.54257, -9.03504 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite/Position2D" index="0"]
+position = Vector2( 15.5594, 0 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 150, 0 )
+collision_mask = 1
+collide_with_areas = true
+collide_with_bodies = false
+_sections_unfolded = [ "Collide With" ]
+
+[node name="Habilidade0" parent="Estados" index="0" instance=ExtResource( 4 )]
+cd_time = 2.0
+
+[node name="Gravidade" parent="." index="9"]
+GRAVIDADE = 20.0
+VELOCIDADE_MAXIMA_QUEDA = 400.0
+
+[node name="Particulas" parent="." index="10"]
+editor/display_folded = true
+
+[node name="ParticulaHP" parent="Particulas" index="0"]
+position = Vector2( 0.0360336, -51.8359 )
+

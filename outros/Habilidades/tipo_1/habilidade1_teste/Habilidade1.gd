@@ -11,12 +11,10 @@ var obj = load("res://outros/Habilidades/tipo_1/habilidade1_teste/Animacao/Anima
 func start():
 	owner.mudar_animacao("Ataque",1,0.2)
 	owner.mudar_mobilidade_e_gravidade("","")
-	owner.controle.set_process(false)
 	poder = Utils.create_object(obj,owner)
 	poder.set_scale(owner.sprite.get_scale())
 	owner.sprite.hide()
 	poder.get_node("AnimationPlayer").playback_speed = 1
-	
 
 	owner.hurtbox.disable = true
 	owner.row_crit()
@@ -39,7 +37,6 @@ func start():
 func update(delta):
 	if !is_instance_valid(poder):
 		owner.hurtbox.disable = false
-		owner.controle.set_process(true)
 		owner.atacando = false
 		owner.sprite.show()
 		owner.mudar_estado(owner.esta())
